@@ -36,7 +36,7 @@ public class RPG{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
-        int pocaoCura = 3;
+    int totalPocoes = 3;
         final int curaPorPocao = 30;
         Personagem jogador = null;
         while (true) {
@@ -77,12 +77,12 @@ public class RPG{
                     System.out.println("Em um momento de paz, um novo humano nasce.\nVocê deseja ser:");
                     System.out.println("╔══════════════════════════════════════════════════════════╗");
                     System.out.println("║ Escolha a sua Classe:                                    ║");
-                    System.out.println("║ 1- Guerreiro   (vida: 120, Dano: 18)                     ║");
-                    System.out.println("║ 2- Arqueiro    (vida:  80, Dano: 20)                     ║");
-                    System.out.println("║ 3- Mago        (vida:  70, Dano: 25)                     ║");
-                    System.out.println("║ 4- Assassino   (vida:  50, Dano: 30)                     ║");
-                    System.out.println("║ 5- Tanque      (vida: 200, Dano: 12)                     ║");
-                    System.out.println("║ 6- Bardo       (vida:  40, Dano: 10)                     ║");
+                        System.out.println("║ 1- Guerreiro   (vida: 160, Dano: 24)                     ║");
+                        System.out.println("║ 2- Arqueiro    (vida: 110, Dano: 28)                     ║");
+                        System.out.println("║ 3- Mago        (vida:  90, Dano: 32)                     ║");
+                        System.out.println("║ 4- Assassino   (vida:  70, Dano: 38)                     ║");
+                        System.out.println("║ 5- Tanque      (vida: 260, Dano: 18)                     ║");
+                        System.out.println("║ 6- Bardo       (vida:  60, Dano: 16)                     ║");
                     System.out.println("╚══════════════════════════════════════════════════════════╝");
                     System.out.print("Digite o número da classe desejada: ");
                     String entradaClasse = scanner.nextLine();
@@ -99,24 +99,24 @@ public class RPG{
                     }
                 }
                 switch (escolha){
-                    case 1:
-                        jogador = new Personagem("Guerreiro", 120, 18);
-                        break;
-                    case 2:
-                        jogador = new Personagem("Arqueiro", 80, 20);
-                        break;
-                    case 3:
-                        jogador = new Personagem("Mago", 70, 25);
-                        break;
-                    case 4:
-                        jogador = new Personagem("Assassino", 50, 30);
-                        break;
-                    case 5:
-                        jogador = new Personagem("Tanque", 200, 12);
-                        break;
-                    case 6:
-                        jogador = new Personagem("Bardo", 40, 10);
-                        break;
+                        case 1:
+                            jogador = new Personagem("Guerreiro", 160, 24);
+                            break;
+                        case 2:
+                            jogador = new Personagem("Arqueiro", 110, 28);
+                            break;
+                        case 3:
+                            jogador = new Personagem("Mago", 90, 32);
+                            break;
+                        case 4:
+                            jogador = new Personagem("Assassino", 70, 38);
+                            break;
+                        case 5:
+                            jogador = new Personagem("Tanque", 260, 18);
+                            break;
+                        case 6:
+                            jogador = new Personagem("Bardo", 60, 16);
+                            break;
                     default:
                         System.out.println("Escolha inválida");
                         jogador = new Personagem("Bardo", 40, 10);
@@ -156,11 +156,11 @@ public class RPG{
 
         // Monstros agora serão sorteados aleatoriamente
         Personagem[] listaMonstros = {
-            new Personagem("Goblin", 60, 12),
-            new Personagem("Orc", 100, 18),
-            new Personagem("Troll", 150, 22)
+            new Personagem("Goblin", 45, 8),
+            new Personagem("Orc", 70, 13),
+            new Personagem("Troll", 110, 16)
         };
-        Personagem dragao = new Personagem("Dragão", 220, 30);
+        Personagem dragao = new Personagem("Dragão", 160, 22);
         int monstrosDerrotados = 0;
         int moedas = 0;
         int mercadorApareceu = 0;
@@ -172,7 +172,7 @@ public class RPG{
                 Personagem inimigo = new Personagem(listaMonstros[idx].nomeClasse, listaMonstros[idx].vida, listaMonstros[idx].danoBase);
                 System.out.println("Um inimigo aparece: " + inimigo.nomeClasse + "!");
                 try { Thread.sleep(1000); } catch (InterruptedException e) { }
-                pocaoCura = 3;
+                int pocaoCura = totalPocoes;
                 while (jogador.vida > 0 && inimigo.vida > 0){
                     System.out.print("\033[H\033[2J");
                     System.out.flush();
@@ -303,12 +303,12 @@ public class RPG{
                         boolean mercadorAtivo = true;
                         while (mercadorAtivo) {
                             System.out.println("╔════════════════════════════════════════════╗");
-                            System.out.println("║ Mercador: O que deseja, aventureiro?    ║");
-                            System.out.println("║ 1 - Comprar poção (5 moedas)              ║");
-                            System.out.println("║ 2 - Comprar espada melhor (15 moedas)     ║");
-                            System.out.println("║ 3 - comprar Armadura (12 moedas)          ║");
-                            System.out.println("║ 4 - Conversar                             ║");
-                            System.out.println("║ 5 - Sair                                  ║");
+                            System.out.println("║ Mercador: O que deseja, aventureiro?       ║");
+                            System.out.println("║ 1 - Comprar poção (5 moedas)               ║");
+                            System.out.println("║ 2 - Comprar espada melhor (15 moedas)       ║");
+                            System.out.println("║ 3 - comprar Armadura (12 moedas)           ║");
+                            System.out.println("║ 4 - Conversar                              ║");
+                            System.out.println("║ 5 - Sair                                   ║");
                             System.out.println("╚════════════════════════════════════════════╝");
                             // Substituir escolha do mercador por:
                             String escolhaMercador = "";
@@ -324,8 +324,8 @@ public class RPG{
                             if (escolhaMercador.equals("1")) {
                                 if (moedas >= 5) {
                                     moedas -= 5;
-                                    pocaoCura++;
-                                    System.out.println("Você comprou uma poção! Agora possui " + pocaoCura + " poções.");
+                                    totalPocoes++;
+                                    System.out.println("Você comprou uma poção! Agora possui " + totalPocoes + " poções para a próxima batalha.");
                                 } else {
                                     System.out.println("Você não tem moedas suficientes.");
                                 }
@@ -360,17 +360,17 @@ public class RPG{
                     if (rand.nextInt(100) < 20) { // 20% de chance
                         System.out.println("\nVocê encontra um Velho Sábio pelo caminho!");
                         System.out.println("╔════════════════════════════════════════════╗");
-                        System.out.println("║  Velho Sábio:                             ║");
-                        System.out.println("║  - A sabedoria é a maior                  ║");
-                        System.out.println("║    arma de um herói.                        ║");
+                        System.out.println("║  Velho Sábio:                              ║");
+                        System.out.println("║  - A sabedoria é a maior                   ║");
+                        System.out.println("║    arma de um herói.                       ║");
                         System.out.println("╚════════════════════════════════════════════╝");
                         int bonus = rand.nextInt(2);
                         if (bonus == 0) {
                             jogador.curar(15);
                             System.out.println("O Velho Sábio cura 15 pontos de sua vida!");
                         } else {
-                            pocaoCura++;
-                            System.out.println("O Velho Sábio lhe entrega uma poção de cura!");
+                            totalPocoes++;
+                            System.out.println("O Velho Sábio lhe entrega uma poção de cura! Agora você tem " + totalPocoes + " poções para a próxima batalha.");
                         }
                         System.out.println("Você agradece e segue sua jornada.\n");
                         try { Thread.sleep(1200); } catch (InterruptedException e) { }
@@ -378,7 +378,7 @@ public class RPG{
                 }
             } else {
                 System.out.println("O Dragão aparece! Prepare-se para a batalha final!");
-                pocaoCura = 3;
+                int pocaoCura = totalPocoes;
                 try { Thread.sleep(1000); } catch (InterruptedException e) { }
                 Personagem inimigo = new Personagem(dragao.nomeClasse, dragao.vida, dragao.danoBase);
                 while (jogador.vida > 0 && inimigo.vida > 0){
@@ -519,7 +519,22 @@ public static String inimigoVisual(String nome) {
                      + "░░░░█░░░░░░░█░░░░░░░░\n"
                      + "░░░░░███████░░░░░░░░░";
             case "Dragão":
-                return "(visual do dragão)";
+                return "░░░░░░░░░░░░░░░█░░░░░\n"
+                     + "░░░░░░█░░░░░░░█░█░░░░\n"
+                     + "░░░░░█░█░░░░░░█░░█░░░\n"
+                     + "█░░░░█░░█░░░░█░░░█░░░\n"
+                     + "░█░░░░█░██████░░█░░░░\n"
+                     + "░░█░░░████▀▀▀███░░░░█\n"
+                     + "░░░█░███▀░░░░▀███░░█░\n"
+                     + "░░░░███░░█░█░░███░█░░\n"
+                     + "░░░███░█░░░░█░████░░░\n"
+                     + "░░███░░░████░░███░░░░\n"
+                     + "░███░░░░█░░░░░███░░░░\n"
+                     + "███░░░░░░░░░░░█████░░\n"
+                     + "███░░░░░░░░░░░███░░██\n"
+                     + "███░░░░░░░░░░░███░░░░\n"
+                     + "░███░░░░░░░░░███░░░░░\n"
+                     + "░░███▄▄▄▄▄▄▄███░░░░░░";
             default:
                 return "";
         }
