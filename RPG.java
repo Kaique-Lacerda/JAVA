@@ -100,7 +100,7 @@ public class RPG{
                 }
                 switch (escolha){
                     case 1:
-                        jogador = new Personagem("Guerreiro", 120, 300);
+                        jogador = new Personagem("Guerreiro", 120, 18);
                         break;
                     case 2:
                         jogador = new Personagem("Arqueiro", 80, 20);
